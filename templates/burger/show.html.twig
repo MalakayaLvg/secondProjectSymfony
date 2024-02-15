@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>One burger</h1>
+
+<div class="form-control">
+    <h2>Name : {{ burger.name }}</h2>
+    <h2>Price : {{ burger.price }} €</h2>
+    <a class="btn btn-primary" href="{{ path("app_burger") }}">back</a>
+    <a class="btn btn-danger" href="{{ path("delete_burger",{id:burger.id}) }}" >delete</a>
+    <a class="btn btn-warning" href="{{ path("edit_burger",{id:burger.id}) }}" >edit</a>
+</div>
+
+<h1>The comments</h1>
+
+    <a class="btn btn-success" href="{{ path("create_comment",{id:burger.id}) }}">create comment</a>
+
+    {% for comment in comments %}
+
+        <div class="form-control">
+            <h3>Content: {{ comment.content }}</h3>
+            <a class="btn btn-danger" href="{{ path("delete_comment",{id:comment.id}) }}">delete comment</a>
+        </div>
+
+    {% endfor %}
+{% endblock %}

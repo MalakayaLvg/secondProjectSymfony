@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BurgerController!{% endblock %}
+
+{% block body %}
+
+    <h1>Les burgers</h1>
+    <a class="btn btn-success" href="{{ path("create_burger") }}">create</a>
+
+    {% for burger in burgers %}
+
+        <div class="form-control">
+            <h2>Name : {{ burger.name }}</h2>
+            <h2>Price : {{ burger.price }} €</h2>
+            <a class="btn btn-primary" href="{{ path("show_burger",{id:burger.id}) }}">show</a>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
